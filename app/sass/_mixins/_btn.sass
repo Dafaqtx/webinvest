@@ -1,0 +1,31 @@
+@mixin button($btn-text-color, $btn-bg)
+    color: $btn-text-color
+    border: none
+    border-radius: 8px
+    text-decoration: none
+    text-align: center
+    background-color: $btn-bg
+    font-size: 18px
+    line-height: 22px
+    padding: 13px 34px
+    transition: background .3s ease
+
+    &:disabled, &.disabled
+        background-color: lighten($btn-bg, 30%)
+        cursor: no-drop
+
+        &:hover
+            background-color: lighten($btn-bg, 30%)
+
+        &:active
+            background-color: lighten($btn-bg, 30%)   
+
+    &:hover
+        background-color: darken($btn-bg, 10%)
+        transition: background .3s ease
+        cursor: pointer
+
+    &:active
+        background-color: lighten($btn-bg, 10%)  
+        cursor: pointer      
+    

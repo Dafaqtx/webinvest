@@ -1,0 +1,101 @@
+// basic
+*, *::before, *::after
+	box-sizing: border-box
+	
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+
+img
+	display: block
+	max-width: 100%
+
+.overflow-hidden
+	overflow: hidden
+
+.dropdown
+	border: none
+	-webkit-appearance: none
+	-moz-appearance: none
+	text-indent: 1px
+	text-overflow: ''
+	color: $accent
+	padding-right: 20px
+	background: url('../img/sorting/arrow.svg') 100% center no-repeat
+        
+
+	&::-ms-expand
+		display: none
+
+.content 
+
+
+.page
+
+	&__title
+		padding: 0 16px
+		font-family: 'ProximaNovaBold', sans-serif
+		margin: 0
+		font-weight: normal
+		font-size: 24px		
+		line-height: 29px
+		color: rgba(0, 0, 0, 0.8)
+
+	&__total
+		margin: 5px 0 0 0
+
+	&__sorting
+		margin-top: 10px
+
+	&__jobs
+		margin-top: 13px		
+		
+@import '_blocks/_total-results.sass'
+@import '_blocks/_sorting'
+@import '_blocks/_jobs'
+@import '_blocks/_current-filters'
+@import '_blocks/_filters'
+
+@media screen and (min-width: 1024px)
+	.header
+		max-width: 1285px
+		margin: 20px auto 18px auto
+
+	.page
+		max-width: 1285px
+		margin: 0 auto
+		position: relative	
+
+		&__title
+			font-size: 32px
+
+		&__total
+			margin-top: 10px	
+
+		&__current-filters
+			margin-top: 21px	
+
+		&__sorting
+			margin-top: 0	
+
+		&__heading
+			display: flex	
+			margin-top: 21px
+
+.desktop-sticky
+
+	&--active
+		position: fixed
+		top: 0
+		left: -16px
+		padding-left: 16px
+		z-index: 100
+		background: #FCFBFA
+		width: calc(100% + 16px)
+		padding-bottom: 25px
+		border-bottom: 1px solid rgba(0,0,0,.1)					

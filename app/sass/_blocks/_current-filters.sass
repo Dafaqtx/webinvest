@@ -1,0 +1,40 @@
+.current-filters
+    display: none
+
+@media screen and (min-width: 1024px)
+    .current-filters
+        display: flex     
+        padding: 0 16px
+
+        &__list
+            display: flex
+            
+
+        &__item    
+            background-color: #edf4ff
+            border-radius: 6px
+            padding: 0 27px 0 8px
+            line-height: normal
+            margin-right: 17px
+            line-height: 24px
+            height: 24px
+            position: relative
+
+            &:last-child
+                margin-right: 25px
+
+            &-del
+                display: inline-block
+                width: 16px
+                height: 16px
+                background: url('../../img/filters/close.svg') no-repeat
+                position: absolute
+                right: 4px
+                top: 50%
+                transform: translateY(-50%)
+                cursor: pointer
+
+        &__clear
+            line-height: 20px
+            color: $accent
+            cursor: pointer

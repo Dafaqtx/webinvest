@@ -1,0 +1,565 @@
+@import '../_mixins/_btn.sass'
+
+.jobs
+    display: flex
+    
+    &__list
+        
+        display: flex
+        flex-wrap: wrap
+        flex-direction: column
+        width: 100%
+        transition: all .3s ease
+
+    &__item
+        position: relative
+
+        &::after
+            content: ''
+            width: 92%
+            height: 1px
+            background-color: rgba(0, 0, 0, 0.1)
+            display: block
+            position: absolute
+            top: 0
+
+    &-item 
+        padding: 18px 16px 12px 16px
+        cursor: pointer
+
+        &--selected
+            background: #edf4ff
+
+        &--vip
+            position: relative
+
+            &::before
+                content: ''
+                width: 3px
+                height: 100%
+                display: block
+                background: $gold
+                position: absolute
+                top: 0
+                left: 0
+
+            & .jobs-item__salary-vip
+                display: inline-block
+
+        &__header
+            display: flex
+
+        &__name
+            font-family: 'ProximaNovaBold', sans-serif
+            font-size: 18px
+            line-height: 18px
+
+        &__date
+            font-size: 12px
+            line-height: 22px
+            color: #999999
+            text-align: right
+            margin: 0 8px 0 auto
+
+        &__favorite
+            width: 24px
+            height: 20px
+            background: url('../../img/jobs/favorite.svg') center no-repeat
+            transition: background .3s ease
+
+            &.selected
+                background: url('../../img/jobs/favorite-active.svg') center no-repeat
+                transition: background .3s ease
+
+        &__salary
+            font-size: 18px
+            line-height: 24px
+
+            &-vip
+                display: none
+                margin-left: 11px
+                border-radius: 4px
+                width: 38px
+                height: 20px
+                text-align: center
+                font-size: 14px
+                text-transform: uppercase
+                line-height: 22px
+                background: $gold
+
+        &__employer
+            color: $grey-text
+
+            &-name
+                
+                &::after
+                    content: '•'
+                    padding: 0 4px 0 8px
+
+        &__location
+            position: relative
+            padding-left: 16px
+
+            &::before
+                content: ''
+                width: 8px
+                height: 8px
+                border-radius: 50%
+                display: inline-block
+                position: absolute
+                left: 0px
+                top: 9px
+
+            &--red
+
+                &::before
+                    background: $red
+                    
+            &-name
+                color: #333333
+                   
+            &-range
+                display: inline-block
+                color: #999999
+                margin-left: 4px  
+
+        &__tags
+            display: none  
+
+        &__desc
+            display: none          
+
+    &__info
+        position: absolute
+        transform: translateX(100%)
+        transition: all .3s ease
+
+    &--show
+
+        & .jobs__list
+            width: calc(100% - 32px)
+            transform: translateX(-100%)
+            transition: all .3s ease
+            display: none
+
+        
+        & .jobs__info
+            overflow: scroll
+            display: block
+            height: 100vh
+            top: 0
+            padding: 0 16px
+            width: 100%
+            background: #fff
+            transform: translateX(0%)
+            transition: all .3s ease
+  
+        
+    &-info
+
+        &__header
+            display: flex
+            color: #999999
+            font-size: 12px
+
+            &-today
+                display: inline-block
+                margin-left: 8px
+
+            &-date
+                position: relative
+
+                &::before
+                    content: '•'
+                    padding: 0 6px
+
+            &-link
+                color: transparent
+                display: inline-block
+                margin-left: auto
+                width: 13.3px
+                height: 13.3px
+                background: url('../../img/jobs/link-icon.svg') no-repeat   
+
+        &__name
+            font-family: 'ProximaNovaBold', sans-serif
+            font-size: 24px        
+            line-height: 29px
+            color: #333333
+            margin-top: 16px      
+
+        &__salary
+            color: #333333
+            font-size: 24px
+            margin-top: 5px
+
+        &__close
+            position: absolute
+            right: 16px
+            display: block
+            margin-left: auto
+            width: 24px
+            height: 24px
+            cursor: pointer
+
+            &::before
+                content: ''
+                width: 100%
+                height: 2px
+                background: #000
+                display: block
+                transform: translate(0, 10px) rotate(-45deg)
+
+            &::after    
+                content: ''
+                width: 100%
+                height: 2px
+                background: #000
+                display: block
+                transform: translate(0, 8px) rotate(45deg)
+            
+        &__employment
+            color: #999999
+
+            &-type
+                position: relative
+
+                &::after
+                    content: '•'
+                    padding: 0 2px 0 6px   
+
+        &-tabs
+            margin-top: 25px
+
+            &__list
+                list-style: none
+                padding: 0
+                margin: 0 0 25px 0
+                display: flex
+                justify-content: space-between
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+
+                &-item
+                    cursor: pointer
+
+                    &--active
+                        color: #333333     
+                        padding-bottom: 10px
+                        position: relative     
+                        
+                        &::after
+                            content: ''
+                            width: 100%
+                            height: 2px
+                            background: $accent
+                            display: block
+                            position: absolute
+                            bottom: -1px     
+
+            &__content
+
+                &-item
+                    display: none
+
+                    & p
+                        font-size: 18px
+                        line-height: 29px
+                        margin: 0 0 40px 0
+
+                    &--active
+                        display: block           
+
+        &__actions
+            display: none
+            
+            &--active
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                background: #FFFFFF
+                border-top: 1px solid rgba(0, 0, 0, 0.08)
+                padding: 16px 0
+                margin-bottom: 16px
+                z-index: 5
+            
+            &-btn
+                @include button(#fcfbfa, $accent)
+
+            &-favorite
+                width: 24px
+                height: 24px
+                background: url('../../img/jobs/favorite-content.svg') center no-repeat
+                transition: background .3s ease
+                cursor: pointer
+
+                &.selected
+                    background: url('../../img/jobs/favorite-active.svg') center no-repeat
+
+            &-hide
+                width: 24px
+                height: 24px
+                background: url('../../img/jobs/hide-icon.svg') center no-repeat
+
+        &__item
+            display: none
+
+            &--active
+                display: block
+                overflow-x: hidden
+
+@media screen and (min-width: 768px)
+    body
+        overflow: scroll  
+        background-color: #FCFBFA
+
+    .page__jobs
+        margin-top: 14px
+
+    .jobs
+
+        &__item
+
+            &::after
+                top: 100%
+                bottom: 0
+
+        &__list   
+            flex-basis: 50%
+            transform: none
+            position: relative
+            border-right: 1px solid rgba(0, 0, 0, 0.1)
+
+            &::before
+                content: ''
+                width: 96%
+                height: 1px
+                background-color: rgba(0,0,0,.1)
+                display: block
+                position: absolute
+                top: 0
+                left: 16px
+
+        &__info
+            background: #fff
+            flex-basis: 50%
+            position: static
+            transform: none
+            padding: 30px 16px 32px 32px 
+            border-top: 1px solid rgba(0, 0, 0, 0.1)
+            height: calc(100vh - 260px)
+            overflow-y: scroll
+            
+            
+
+        &-info
+
+            &--active
+                position: relative
+
+            &::-webkit-scrollbar
+                width: 6px
+                
+            &::-webkit-scrollbar-track
+                -webkit-box-shadow: inset 0 0 6px transparent
+            
+            &::-webkit-scrollbar-thumb
+                border-radius: 8px
+                background-color: transparent
+                outline: none
+                transition: all .3s ease
+
+            &:hover
+                &::-webkit-scrollbar-thumb 
+                    background-color: #999999 
+                    transition: all .3s ease
+
+            &__close
+                display: none  
+
+            &__salary
+                margin-top: 0
+
+            &__tabs
+                margin-top: 31px  
+
+            &__employment
+                margin-top: 3px    
+
+            &-tabs
+
+                &__list
+                    margin-bottom: 21px    
+
+                &__content
+
+                    &-item
+
+                        & p
+                            margin-bottom: 30px     
+
+            &__actions
+                position: fixed
+                bottom: 0vh
+                max-width: 385px
+                margin-bottom: 0
+                right: -2px
+                padding-left: 32px
+                padding-right: 28px          
+
+@media screen and (min-width: 1024px)
+    .jobs
+
+        &-desktop-line
+            display: flex
+
+        &__list
+            flex-basis: auto
+            width: 100%
+            max-width: 675px
+
+            &::before
+                width: calc(98% - 3px)
+
+        &__item
+
+            &::after
+                width: 100%
+                left: 0
+
+        &-item
+
+            &__location
+                margin-right: 20px
+                margin-top: 4px
+
+            &__salary
+                margin-right: 16px
+
+            &__tags
+                display: block
+                margin-top: 4px
+
+                &-item
+                    font-size: 12px
+                    line-height: 22px
+                    display: inline-block
+                    padding: 0 8px
+                    background: #ffffff
+                    border: 1px solid rgba(0, 0, 0, 0.1)
+                    box-sizing: border-box
+                    border-radius: 8px 
+                    margin-right: 5px
+
+                    &:last-child
+                        margin-right: 0
+
+            &__desc
+                display: flex
+                align-items: flex-end
+
+                &-text        
+                    font-size: 14px
+                    color: $grey-text
+                    line-height: normal
+                    margin-top: 8px
+
+                &-ava
+                    min-width: 40px
+                    height: 40px
+                    background: #ffffff
+                    border-radius: 50%
+                    border: 1px solid rgba(0, 0, 0, 0.16)
+                    box-sizing: border-box
+                    color: $accent  
+                    text-align: center
+                    line-height: 38px 
+
+        &__info
+            border-right: 1px solid rgba(0,0,0,.1)
+            flex-basis: auto
+            width: 100%
+            max-width: 610px
+            padding: 44px 0 0 0
+            height: calc(100vh - 260px)
+            overflow-y: scroll
+
+        &-info
+
+            &--active
+                position: relative
+
+                & .jobs-info__header,
+                & .jobs-info__salary,
+                & .jobs-info__employment
+                    display: none
+
+            &::-webkit-scrollbar
+                width: 6px
+                    
+            &::-webkit-scrollbar-track
+                -webkit-box-shadow: inset 0 0 6px transparent
+            
+            &::-webkit-scrollbar-thumb
+                border-radius: 8px
+                background-color: transparent
+                outline: none
+                transition: all .3s ease
+
+            &:hover
+                &::-webkit-scrollbar-thumb 
+                    background-color: #999999 
+                    transition: all .3s ease
+
+            &__item
+                height: auto
+                overflow-y: auto
+
+            &__header
+                
+                &-link
+                    width: auto
+                    font-size: 12px
+                    height: 18px
+                    display: inline-block
+                    text-decoration: none
+                    color: #999999
+                    padding-right: 20px
+                    background: url(../../img/jobs/link-icon.svg) right center no-repeat
+
+            &__header,
+            &__name,
+            &__salary,
+            &__employment,
+            &__tabs    
+                padding-left: 47px
+                padding-right: 48px
+
+            &__actions
+                right: 0
+                padding-left: 46px
+                max-width: 100%
+                padding-right: 42%
+
+                &--active
+                    position: relative
+          
+            &__name
+                margin-top: 14px
+
+            &-tabs
+
+                &__list
+                    justify-content: flex-start     
+
+                    &-item
+                        margin-right: 32px
+
+                        &:last-child
+                            margin-right: 0     
+
+            &__salary
+                margin-top: 5px 
+
+            &__employment
+                margin-top: 0                     
